@@ -1,0 +1,6 @@
+# Ignore python compiled files, my vim session file, and
+# the directories for compiled cython code.
+*.pyc
+.session.vim
+lib
+tmp
