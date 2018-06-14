@@ -60,7 +60,11 @@ class QGModel(model.Model):
 
     def __init__(
         self,
-        rek=0.0,        # linear drag, an array or constant
+        rek_k=6,        # zonal wavenumber
+        rek_l=0.5,      # meridional wavenumber
+        rek_base=0.05,  # magnitude of ReK, in days^-1
+        rek_anom=0.01,  # maximum amplitude of perturbation rek
+        # rek=0.0,      # linear drag, an array or constant
         # rek=5.787e-7, # linear drag in lower layer
         beta=1.5e-11,   # gradient of coriolis parameter
         rd=15000.0,     # deformation radius
@@ -107,6 +111,11 @@ class QGModel(model.Model):
             1e-7*np.random.rand(self.ny,self.nx) + 1e-6*(
                 np.ones((self.ny,1)) * np.random.rand(1,self.nx) ),
                 np.zeros_like(self.x) )
+
+        # initial conditions
+        self.set_rek(
+
+                )
 
 
 

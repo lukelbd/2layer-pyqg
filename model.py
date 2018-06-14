@@ -132,8 +132,6 @@ class Model(PseudoSpectralKernel):
             Domain length in x direction. Units: meters.
         W :
             Domain width in y direction. Units: meters (default: L).
-        rek : number
-            linear drag in lower layer. Units: seconds :sup:`-1`.
         filterfac : number
             amplitdue of the spectral spherical filter (originally 18.4, later
             changed to 23.6).

@@ -75,6 +75,7 @@ cdef class PseudoSpectralKernel:
     # friction parameter, now multi-dimensional
     # will stay zero in the upper level for now
     cdef public DTYPE_real_t [:,:,:] rek
+    cdef public DTYPE_real_t [:,:,:] rekh
 
     # background state constants (functions of z only)
     cdef DTYPE_real_t [:] Ubg
@@ -121,7 +122,10 @@ cdef class PseudoSpectralKernel:
         self._k2l2 = np.zeros((self.nl, self.nk), DTYPE_real)
 
         # friction, try a y by x grid
+        # probably doesn't need special allocation, because this will not
+        # be changed during run
         self.rek = np.zeros((self.nz, self.nl, self.nk), DTYPE_real)
+        self.rekh = np.zeros((self.nz, self.nl, self.nk), DTYPE_com)
 
         # initialize FFT inputs / outputs as byte aligned by pyfftw
         q = self._empty_real()
@@ -362,7 +366,7 @@ cdef class PseudoSpectralKernel:
             for i in range(self.nk):
                 self.dqhdt[k,j,i] = (
                  self.dqhdt[k,j,i] +
-                         (self.rek[k,j,i] *
+                         (self.rekh[k,j,i] *
                          self._k2l2[j,i] *
                          self.ph[k,j,i]) )
         return
