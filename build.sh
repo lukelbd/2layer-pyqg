@@ -5,8 +5,7 @@
 # Tried to get around this, because it creates stupid useless 'build' directory, but
 # some stuff I don't understand
 # Use python setup.py build_ext --help to see options
-cd .. # move to parent directory
-python pyqg_mod/setup.py build_ext --build-lib=pyqg_mod/lib --build-temp=pyqg_mod/tmp --inplace
+python setup.py build_ext --build-lib=pyqg/lib --build-temp=pyqg/tmp --inplace
 exit
 
 #------------------------------------------------------------------------------#

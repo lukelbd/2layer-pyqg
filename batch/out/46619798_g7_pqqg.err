@@ -1,0 +1,128 @@
+INFO:  Logger initialized
+INFO:  Kernel initialized
+INFO: Step: 1000, Time: 2.88e+05, KE: 1.51e-04, CFL: 0.092
+INFO: Step: 2000, Time: 5.76e+05, KE: 1.53e-04, CFL: 0.092
+INFO: Step: 3000, Time: 8.64e+05, KE: 1.57e-04, CFL: 0.092
+INFO: Step: 4000, Time: 1.15e+06, KE: 1.62e-04, CFL: 0.092
+INFO: Step: 5000, Time: 1.44e+06, KE: 1.69e-04, CFL: 0.092
+INFO: Step: 6000, Time: 1.73e+06, KE: 1.77e-04, CFL: 0.092
+INFO: Step: 7000, Time: 2.02e+06, KE: 1.87e-04, CFL: 0.092
+INFO: Step: 8000, Time: 2.30e+06, KE: 2.00e-04, CFL: 0.092
+INFO: Step: 9000, Time: 2.59e+06, KE: 2.15e-04, CFL: 0.092
+INFO: Step: 10000, Time: 2.88e+06, KE: 2.34e-04, CFL: 0.092
+INFO: Step: 11000, Time: 3.17e+06, KE: 2.57e-04, CFL: 0.092
+INFO: Step: 12000, Time: 3.46e+06, KE: 2.85e-04, CFL: 0.092
+INFO: Step: 13000, Time: 3.74e+06, KE: 3.19e-04, CFL: 0.092
+INFO: Step: 14000, Time: 4.03e+06, KE: 3.61e-04, CFL: 0.092
+INFO: Step: 15000, Time: 4.32e+06, KE: 4.12e-04, CFL: 0.092
+INFO: Step: 16000, Time: 4.61e+06, KE: 4.75e-04, CFL: 0.092
+INFO: Step: 17000, Time: 4.90e+06, KE: 5.54e-04, CFL: 0.092
+INFO: Step: 18000, Time: 5.18e+06, KE: 6.51e-04, CFL: 0.092
+INFO: Step: 19000, Time: 5.47e+06, KE: 7.72e-04, CFL: 0.092
+INFO: Step: 20000, Time: 5.76e+06, KE: 9.23e-04, CFL: 0.092
+INFO: Step: 21000, Time: 6.05e+06, KE: 1.11e-03, CFL: 0.092
+INFO: Step: 22000, Time: 6.34e+06, KE: 1.35e-03, CFL: 0.092
+INFO: Step: 23000, Time: 6.62e+06, KE: 1.65e-03, CFL: 0.092
+INFO: Step: 24000, Time: 6.91e+06, KE: 2.02e-03, CFL: 0.092
+INFO: Step: 25000, Time: 7.20e+06, KE: 2.50e-03, CFL: 0.092
+INFO: Step: 26000, Time: 7.49e+06, KE: 3.10e-03, CFL: 0.092
+INFO: Step: 27000, Time: 7.78e+06, KE: 3.86e-03, CFL: 0.092
+INFO: Step: 28000, Time: 8.06e+06, KE: 4.84e-03, CFL: 0.092
+INFO: Step: 29000, Time: 8.35e+06, KE: 6.09e-03, CFL: 0.092
+INFO: Step: 30000, Time: 8.64e+06, KE: 7.70e-03, CFL: 0.092
+INFO: Step: 31000, Time: 8.93e+06, KE: 9.77e-03, CFL: 0.092
+INFO: Step: 32000, Time: 9.22e+06, KE: 1.24e-02, CFL: 0.092
+INFO: Step: 33000, Time: 9.50e+06, KE: 1.59e-02, CFL: 0.092
+INFO: Step: 34000, Time: 9.79e+06, KE: 2.04e-02, CFL: 0.092
+INFO: Step: 35000, Time: 1.01e+07, KE: 2.62e-02, CFL: 0.092
+INFO: Step: 36000, Time: 1.04e+07, KE: 3.39e-02, CFL: 0.092
+INFO: Step: 37000, Time: 1.07e+07, KE: 4.39e-02, CFL: 0.092
+INFO: Step: 38000, Time: 1.09e+07, KE: 5.69e-02, CFL: 0.092
+INFO: Step: 39000, Time: 1.12e+07, KE: 7.42e-02, CFL: 0.092
+INFO: Step: 40000, Time: 1.15e+07, KE: 9.68e-02, CFL: 0.092
+INFO: Step: 41000, Time: 1.18e+07, KE: 1.27e-01, CFL: 0.092
+INFO: Step: 42000, Time: 1.21e+07, KE: 1.66e-01, CFL: 0.092
+INFO: Step: 43000, Time: 1.24e+07, KE: 2.19e-01, CFL: 0.092
+INFO: Step: 44000, Time: 1.27e+07, KE: 2.89e-01, CFL: 0.092
+INFO: Step: 45000, Time: 1.30e+07, KE: 3.81e-01, CFL: 0.092
+INFO: Step: 46000, Time: 1.32e+07, KE: 5.05e-01, CFL: 0.092
+INFO: Step: 47000, Time: 1.35e+07, KE: 6.69e-01, CFL: 0.092
+INFO: Step: 48000, Time: 1.38e+07, KE: 8.89e-01, CFL: 0.092
+INFO: Step: 49000, Time: 1.41e+07, KE: 1.18e+00, CFL: 0.092
+INFO: Step: 50000, Time: 1.44e+07, KE: 1.58e+00, CFL: 0.092
+INFO: Step: 51000, Time: 1.47e+07, KE: 2.11e+00, CFL: 0.093
+INFO: Step: 52000, Time: 1.50e+07, KE: 2.81e+00, CFL: 0.093
+INFO: Step: 53000, Time: 1.53e+07, KE: 3.77e+00, CFL: 0.093
+INFO: Step: 54000, Time: 1.56e+07, KE: 5.04e+00, CFL: 0.093
+INFO: Step: 55000, Time: 1.58e+07, KE: 6.77e+00, CFL: 0.093
+INFO: Step: 56000, Time: 1.61e+07, KE: 9.08e+00, CFL: 0.093
+INFO: Step: 57000, Time: 1.64e+07, KE: 1.22e+01, CFL: 0.093
+INFO: Step: 58000, Time: 1.67e+07, KE: 1.64e+01, CFL: 0.093
+INFO: Step: 59000, Time: 1.70e+07, KE: 2.21e+01, CFL: 0.093
+INFO: Step: 60000, Time: 1.73e+07, KE: 2.97e+01, CFL: 0.106
+INFO: Step: 61000, Time: 1.76e+07, KE: 4.00e+01, CFL: 0.124
+INFO: Step: 62000, Time: 1.79e+07, KE: 5.40e+01, CFL: 0.146
+INFO: Step: 63000, Time: 1.81e+07, KE: 7.27e+01, CFL: 0.174
+INFO: Step: 64000, Time: 1.84e+07, KE: 9.73e+01, CFL: 0.208
+INFO: Step: 65000, Time: 1.87e+07, KE: 1.17e+02, CFL: 0.289
+INFO: Step: 66000, Time: 1.90e+07, KE: 1.04e+02, CFL: 0.054
+INFO: Step: 67000, Time: 1.93e+07, KE: 1.03e+02, CFL: 0.063
+INFO: Step: 68000, Time: 1.96e+07, KE: 9.17e+01, CFL: 0.063
+INFO: Step: 69000, Time: 1.99e+07, KE: 8.33e+01, CFL: 0.060
+INFO: Step: 70000, Time: 2.02e+07, KE: 7.68e+01, CFL: 0.055
+INFO: Step: 71000, Time: 2.04e+07, KE: 7.01e+01, CFL: 0.056
+INFO: Step: 72000, Time: 2.07e+07, KE: 6.91e+01, CFL: 0.060
+INFO: Step: 73000, Time: 2.10e+07, KE: 6.84e+01, CFL: 0.064
+INFO: Step: 74000, Time: 2.13e+07, KE: 6.61e+01, CFL: 0.059
+INFO: Step: 75000, Time: 2.16e+07, KE: 6.20e+01, CFL: 0.066
+INFO: Step: 76000, Time: 2.19e+07, KE: 6.11e+01, CFL: 0.052
+INFO: Step: 77000, Time: 2.22e+07, KE: 5.91e+01, CFL: 0.054
+INFO: Step: 78000, Time: 2.25e+07, KE: 5.79e+01, CFL: 0.063
+INFO: Step: 79000, Time: 2.28e+07, KE: 5.60e+01, CFL: 0.059
+INFO: Step: 80000, Time: 2.30e+07, KE: 5.48e+01, CFL: 0.058
+INFO: Step: 81000, Time: 2.33e+07, KE: 5.33e+01, CFL: 0.052
+INFO: Step: 82000, Time: 2.36e+07, KE: 5.07e+01, CFL: 0.048
+INFO: Step: 83000, Time: 2.39e+07, KE: 4.85e+01, CFL: 0.045
+INFO: Step: 84000, Time: 2.42e+07, KE: 4.75e+01, CFL: 0.049
+INFO: Step: 85000, Time: 2.45e+07, KE: 4.65e+01, CFL: 0.052
+INFO: Step: 86000, Time: 2.48e+07, KE: 4.50e+01, CFL: 0.051
+INFO: Step: 87000, Time: 2.51e+07, KE: 4.46e+01, CFL: 0.051
+INFO: Step: 88000, Time: 2.53e+07, KE: 4.38e+01, CFL: 0.050
+INFO: Step: 89000, Time: 2.56e+07, KE: 4.28e+01, CFL: 0.053
+INFO: Step: 90000, Time: 2.59e+07, KE: 4.28e+01, CFL: 0.057
+INFO: Step: 91000, Time: 2.62e+07, KE: 4.34e+01, CFL: 0.053
+INFO: Step: 92000, Time: 2.65e+07, KE: 4.39e+01, CFL: 0.050
+INFO: Step: 93000, Time: 2.68e+07, KE: 4.43e+01, CFL: 0.052
+INFO: Step: 94000, Time: 2.71e+07, KE: 4.38e+01, CFL: 0.050
+INFO: Step: 95000, Time: 2.74e+07, KE: 4.43e+01, CFL: 0.056
+INFO: Step: 96000, Time: 2.76e+07, KE: 4.52e+01, CFL: 0.050
+INFO: Step: 97000, Time: 2.79e+07, KE: 4.52e+01, CFL: 0.044
+INFO: Step: 98000, Time: 2.82e+07, KE: 4.57e+01, CFL: 0.051
+INFO: Step: 99000, Time: 2.85e+07, KE: 4.57e+01, CFL: 0.053
+INFO: Step: 100000, Time: 2.88e+07, KE: 4.63e+01, CFL: 0.053
+INFO: Step: 101000, Time: 2.91e+07, KE: 4.83e+01, CFL: 0.058
+INFO: Step: 102000, Time: 2.94e+07, KE: 5.03e+01, CFL: 0.048
+INFO: Step: 103000, Time: 2.97e+07, KE: 5.29e+01, CFL: 0.053
+INFO: Step: 104000, Time: 3.00e+07, KE: 5.40e+01, CFL: 0.049
+INFO: Step: 105000, Time: 3.02e+07, KE: 5.61e+01, CFL: 0.050
+INFO: Step: 106000, Time: 3.05e+07, KE: 5.80e+01, CFL: 0.055
+INFO: Step: 107000, Time: 3.08e+07, KE: 5.94e+01, CFL: 0.058
+INFO: Step: 108000, Time: 3.11e+07, KE: 6.12e+01, CFL: 0.055
+INFO: Step: 109000, Time: 3.14e+07, KE: 6.43e+01, CFL: 0.061
+INFO: Step: 110000, Time: 3.17e+07, KE: 6.59e+01, CFL: 0.062
+INFO: Step: 111000, Time: 3.20e+07, KE: 6.96e+01, CFL: 0.057
+INFO: Step: 112000, Time: 3.23e+07, KE: 7.44e+01, CFL: 0.061
+/project2/rossby/group07/.conda/lib/python2.7/site-packages/numpy/core/_methods.py:26: RuntimeWarning: invalid value encountered in reduce
+  return umr_maximum(a, axis, None, out, keepdims)
+INFO: Step: 113000, Time: 3.25e+07, KE: nan, CFL:  nan
+ERROR: CFL condition violated
+Traceback (most recent call last):
+  File "/project2/rossby/group07/analysis/model_runner_parallel_atm.py", line 155, in <module>
+    for i in m.run_with_snapshots(tsnapstart=0, tsnapint=2000):
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/pyqg/model.py", line 203, in run_with_snapshots
+    self._step_forward()
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/pyqg/model.py", line 349, in _step_forward
+    self._print_status()
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/pyqg/model.py", line 501, in _print_status
+    assert self.cfl<1., self.logger.error('CFL condition violated')
+AssertionError: None

@@ -1,0 +1,10 @@
+INFO:  Logger initialized
+INFO:  Kernel initialized
+INFO: Step: 1000, Time: 3.60e+06, KE: 4.23e-02, CFL: 0.098
+INFO: Step: 2000, Time: 7.20e+06, KE: 3.61e-01, CFL: 0.058
+Traceback (most recent call last):
+  File "/home/t-970c07/model_runner_parallel.py", line 166, in <module>
+    Saving.save_diagnostics(m)
+  File "/project2/rossby/group07/functions/Saving.py", line 99, in save_diagnostics
+    h5file.create_dataset(key, data=(self.diagnostics[key]['value']))
+KeyError: 'value'

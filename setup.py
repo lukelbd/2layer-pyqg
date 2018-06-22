@@ -63,7 +63,7 @@ install_requires = [
 ]
 
 # This hack tells cython whether pyfftw is present
-use_pyfftw_file = 'pyqg_mod/.compile_time_use_pyfftw.pxi'
+use_pyfftw_file = 'pyqg/.compile_time_use_pyfftw.pxi'
 with open(use_pyfftw_file, 'wb') as f:
     try:
         import pyfftw
@@ -131,8 +131,8 @@ def readme():
         return f.read()
 
 ext_module = Extension(
-    "pyqg_mod.kernel",
-    ["pyqg_mod/kernel.pyx"],
+    "pyqg.kernel",
+    ["pyqg/kernel.pyx"],
     extra_compile_args=extra_compile_args,
     extra_link_args=extra_link_args,
 )
@@ -147,7 +147,7 @@ setup(name=DISTNAME,
       author=AUTHOR,
       author_email=AUTHOR_EMAIL,
       license=LICENSE,
-      packages=['pyqg_mod'],
+      packages=['pyqg'],
       install_requires=install_requires,
       ext_modules = cythonize(ext_module),
       include_dirs = [np.get_include()],

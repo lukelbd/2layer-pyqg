@@ -1,0 +1,143 @@
+INFO:  Logger initialized
+INFO:  Kernel initialized
+INFO: Step: 1000, Time: 3.60e+06, KE: 4.69e-02, CFL: 0.088
+INFO: Step: 2000, Time: 7.20e+06, KE: 3.68e-01, CFL: 0.068
+INFO: Step: 3000, Time: 1.08e+07, KE: 5.77e-01, CFL: 0.087
+INFO: Step: 4000, Time: 1.44e+07, KE: 7.84e-01, CFL: 0.094
+INFO: Step: 5000, Time: 1.80e+07, KE: 9.72e-01, CFL: 0.102
+INFO: Step: 6000, Time: 2.16e+07, KE: 1.18e+00, CFL: 0.098
+INFO: Step: 7000, Time: 2.52e+07, KE: 1.31e+00, CFL: 0.115
+INFO: Step: 8000, Time: 2.88e+07, KE: 1.35e+00, CFL: 0.118
+INFO: Step: 9000, Time: 3.24e+07, KE: 1.50e+00, CFL: 0.110
+INFO: Step: 10000, Time: 3.60e+07, KE: 1.61e+00, CFL: 0.116
+INFO: Step: 11000, Time: 3.96e+07, KE: 1.50e+00, CFL: 0.118
+INFO: Step: 12000, Time: 4.32e+07, KE: 1.57e+00, CFL: 0.107
+INFO: Step: 13000, Time: 4.68e+07, KE: 1.54e+00, CFL: 0.130
+INFO: Step: 14000, Time: 5.04e+07, KE: 1.44e+00, CFL: 0.129
+INFO: Step: 15000, Time: 5.40e+07, KE: 1.50e+00, CFL: 0.115
+INFO: Step: 16000, Time: 5.76e+07, KE: 1.57e+00, CFL: 0.110
+INFO: Step: 17000, Time: 6.12e+07, KE: 1.58e+00, CFL: 0.113
+INFO: Step: 18000, Time: 6.48e+07, KE: 1.49e+00, CFL: 0.103
+INFO: Step: 19000, Time: 6.84e+07, KE: 1.44e+00, CFL: 0.118
+INFO: Step: 20000, Time: 7.20e+07, KE: 1.41e+00, CFL: 0.111
+INFO: Step: 21000, Time: 7.56e+07, KE: 1.46e+00, CFL: 0.109
+INFO: Step: 22000, Time: 7.92e+07, KE: 1.47e+00, CFL: 0.112
+INFO: Step: 23000, Time: 8.28e+07, KE: 1.52e+00, CFL: 0.144
+INFO: Step: 24000, Time: 8.64e+07, KE: 1.43e+00, CFL: 0.122
+INFO: Step: 25000, Time: 9.00e+07, KE: 1.55e+00, CFL: 0.121
+INFO: Step: 26000, Time: 9.36e+07, KE: 1.46e+00, CFL: 0.127
+INFO: Step: 27000, Time: 9.72e+07, KE: 1.47e+00, CFL: 0.107
+INFO: Step: 28000, Time: 1.01e+08, KE: 1.55e+00, CFL: 0.125
+INFO: Step: 29000, Time: 1.04e+08, KE: 1.53e+00, CFL: 0.119
+INFO: Step: 30000, Time: 1.08e+08, KE: 1.46e+00, CFL: 0.122
+INFO: Step: 31000, Time: 1.12e+08, KE: 1.49e+00, CFL: 0.113
+INFO: Step: 32000, Time: 1.15e+08, KE: 1.46e+00, CFL: 0.108
+INFO: Step: 33000, Time: 1.19e+08, KE: 1.47e+00, CFL: 0.110
+INFO: Step: 34000, Time: 1.22e+08, KE: 1.50e+00, CFL: 0.125
+INFO: Step: 35000, Time: 1.26e+08, KE: 1.44e+00, CFL: 0.120
+INFO: Step: 36000, Time: 1.30e+08, KE: 1.42e+00, CFL: 0.105
+INFO: Step: 37000, Time: 1.33e+08, KE: 1.39e+00, CFL: 0.122
+INFO: Step: 38000, Time: 1.37e+08, KE: 1.48e+00, CFL: 0.121
+INFO: Step: 39000, Time: 1.40e+08, KE: 1.46e+00, CFL: 0.105
+INFO: Step: 40000, Time: 1.44e+08, KE: 1.55e+00, CFL: 0.113
+INFO: Step: 41000, Time: 1.48e+08, KE: 1.52e+00, CFL: 0.129
+INFO: Step: 42000, Time: 1.51e+08, KE: 1.54e+00, CFL: 0.117
+INFO: Step: 43000, Time: 1.55e+08, KE: 1.52e+00, CFL: 0.117
+INFO: Step: 44000, Time: 1.58e+08, KE: 1.59e+00, CFL: 0.106
+INFO: Step: 45000, Time: 1.62e+08, KE: 1.52e+00, CFL: 0.129
+INFO: Step: 46000, Time: 1.66e+08, KE: 1.57e+00, CFL: 0.112
+INFO: Step: 47000, Time: 1.69e+08, KE: 1.61e+00, CFL: 0.134
+INFO: Step: 48000, Time: 1.73e+08, KE: 1.48e+00, CFL: 0.116
+INFO: Step: 49000, Time: 1.76e+08, KE: 1.50e+00, CFL: 0.135
+INFO: Step: 50000, Time: 1.80e+08, KE: 1.53e+00, CFL: 0.152
+INFO: Step: 51000, Time: 1.84e+08, KE: 1.44e+00, CFL: 0.104
+INFO: Step: 52000, Time: 1.87e+08, KE: 1.44e+00, CFL: 0.123
+INFO: Step: 53000, Time: 1.91e+08, KE: 1.42e+00, CFL: 0.122
+INFO: Step: 54000, Time: 1.94e+08, KE: 1.35e+00, CFL: 0.108
+INFO: Step: 55000, Time: 1.98e+08, KE: 1.47e+00, CFL: 0.121
+INFO: Step: 56000, Time: 2.02e+08, KE: 1.42e+00, CFL: 0.121
+INFO: Step: 57000, Time: 2.05e+08, KE: 1.47e+00, CFL: 0.105
+INFO: Step: 58000, Time: 2.09e+08, KE: 1.39e+00, CFL: 0.115
+INFO: Step: 59000, Time: 2.12e+08, KE: 1.43e+00, CFL: 0.128
+INFO: Step: 60000, Time: 2.16e+08, KE: 1.41e+00, CFL: 0.106
+INFO: Step: 61000, Time: 2.20e+08, KE: 1.42e+00, CFL: 0.111
+INFO: Step: 62000, Time: 2.23e+08, KE: 1.41e+00, CFL: 0.120
+INFO: Step: 63000, Time: 2.27e+08, KE: 1.36e+00, CFL: 0.108
+INFO: Step: 64000, Time: 2.30e+08, KE: 1.44e+00, CFL: 0.108
+INFO: Step: 65000, Time: 2.34e+08, KE: 1.42e+00, CFL: 0.114
+INFO: Step: 66000, Time: 2.38e+08, KE: 1.44e+00, CFL: 0.109
+INFO: Step: 67000, Time: 2.41e+08, KE: 1.49e+00, CFL: 0.120
+INFO: Step: 68000, Time: 2.45e+08, KE: 1.50e+00, CFL: 0.109
+INFO: Step: 69000, Time: 2.48e+08, KE: 1.51e+00, CFL: 0.121
+INFO: Step: 70000, Time: 2.52e+08, KE: 1.56e+00, CFL: 0.119
+INFO: Step: 71000, Time: 2.56e+08, KE: 1.56e+00, CFL: 0.124
+INFO: Step: 72000, Time: 2.59e+08, KE: 1.49e+00, CFL: 0.123
+INFO: Step: 73000, Time: 2.63e+08, KE: 1.52e+00, CFL: 0.153
+INFO: Step: 74000, Time: 2.66e+08, KE: 1.52e+00, CFL: 0.118
+INFO: Step: 75000, Time: 2.70e+08, KE: 1.56e+00, CFL: 0.106
+INFO: Step: 76000, Time: 2.74e+08, KE: 1.50e+00, CFL: 0.110
+INFO: Step: 77000, Time: 2.77e+08, KE: 1.46e+00, CFL: 0.131
+INFO: Step: 78000, Time: 2.81e+08, KE: 1.54e+00, CFL: 0.118
+INFO: Step: 79000, Time: 2.84e+08, KE: 1.41e+00, CFL: 0.105
+INFO: Step: 80000, Time: 2.88e+08, KE: 1.53e+00, CFL: 0.116
+INFO: Step: 81000, Time: 2.92e+08, KE: 1.47e+00, CFL: 0.111
+INFO: Step: 82000, Time: 2.95e+08, KE: 1.45e+00, CFL: 0.107
+INFO: Step: 83000, Time: 2.99e+08, KE: 1.41e+00, CFL: 0.114
+INFO: Step: 84000, Time: 3.02e+08, KE: 1.32e+00, CFL: 0.101
+INFO: Step: 85000, Time: 3.06e+08, KE: 1.46e+00, CFL: 0.127
+INFO: Step: 86000, Time: 3.10e+08, KE: 1.57e+00, CFL: 0.113
+INFO: Step: 87000, Time: 3.13e+08, KE: 1.54e+00, CFL: 0.119
+INFO: Step: 88000, Time: 3.17e+08, KE: 1.52e+00, CFL: 0.140
+INFO: Step: 89000, Time: 3.20e+08, KE: 1.45e+00, CFL: 0.123
+INFO: Step: 90000, Time: 3.24e+08, KE: 1.46e+00, CFL: 0.143
+INFO: Step: 91000, Time: 3.28e+08, KE: 1.49e+00, CFL: 0.115
+INFO: Step: 92000, Time: 3.31e+08, KE: 1.49e+00, CFL: 0.106
+INFO: Step: 93000, Time: 3.35e+08, KE: 1.39e+00, CFL: 0.136
+INFO: Step: 94000, Time: 3.38e+08, KE: 1.42e+00, CFL: 0.119
+INFO: Step: 95000, Time: 3.42e+08, KE: 1.43e+00, CFL: 0.122
+INFO: Step: 96000, Time: 3.46e+08, KE: 1.45e+00, CFL: 0.110
+INFO: Step: 97000, Time: 3.49e+08, KE: 1.42e+00, CFL: 0.116
+INFO: Step: 98000, Time: 3.53e+08, KE: 1.53e+00, CFL: 0.122
+INFO: Step: 99000, Time: 3.56e+08, KE: 1.48e+00, CFL: 0.121
+INFO: Step: 100000, Time: 3.60e+08, KE: 1.44e+00, CFL: 0.112
+INFO: Step: 101000, Time: 3.64e+08, KE: 1.46e+00, CFL: 0.125
+INFO: Step: 102000, Time: 3.67e+08, KE: 1.52e+00, CFL: 0.116
+INFO: Step: 103000, Time: 3.71e+08, KE: 1.47e+00, CFL: 0.131
+INFO: Step: 104000, Time: 3.74e+08, KE: 1.53e+00, CFL: 0.103
+INFO: Step: 105000, Time: 3.78e+08, KE: 1.59e+00, CFL: 0.133
+INFO: Step: 106000, Time: 3.82e+08, KE: 1.51e+00, CFL: 0.153
+INFO: Step: 107000, Time: 3.85e+08, KE: 1.50e+00, CFL: 0.101
+INFO: Step: 108000, Time: 3.89e+08, KE: 1.58e+00, CFL: 0.133
+INFO: Step: 109000, Time: 3.92e+08, KE: 1.57e+00, CFL: 0.127
+INFO: Step: 110000, Time: 3.96e+08, KE: 1.59e+00, CFL: 0.144
+INFO: Step: 111000, Time: 4.00e+08, KE: 1.61e+00, CFL: 0.108
+INFO: Step: 112000, Time: 4.03e+08, KE: 1.64e+00, CFL: 0.119
+INFO: Step: 113000, Time: 4.07e+08, KE: 1.60e+00, CFL: 0.128
+INFO: Step: 114000, Time: 4.10e+08, KE: 1.54e+00, CFL: 0.145
+INFO: Step: 115000, Time: 4.14e+08, KE: 1.47e+00, CFL: 0.118
+INFO: Step: 116000, Time: 4.18e+08, KE: 1.49e+00, CFL: 0.114
+INFO: Step: 117000, Time: 4.21e+08, KE: 1.53e+00, CFL: 0.122
+INFO: Step: 118000, Time: 4.25e+08, KE: 1.58e+00, CFL: 0.143
+INFO: Step: 119000, Time: 4.28e+08, KE: 1.61e+00, CFL: 0.114
+INFO: Step: 120000, Time: 4.32e+08, KE: 1.56e+00, CFL: 0.118
+INFO: Step: 121000, Time: 4.36e+08, KE: 1.47e+00, CFL: 0.119
+INFO: Step: 122000, Time: 4.39e+08, KE: 1.48e+00, CFL: 0.134
+INFO: Step: 123000, Time: 4.43e+08, KE: 1.50e+00, CFL: 0.117
+INFO: Step: 124000, Time: 4.46e+08, KE: 1.47e+00, CFL: 0.129
+INFO: Step: 125000, Time: 4.50e+08, KE: 1.55e+00, CFL: 0.117
+INFO: Step: 126000, Time: 4.54e+08, KE: 1.50e+00, CFL: 0.134
+INFO: Step: 127000, Time: 4.57e+08, KE: 1.49e+00, CFL: 0.105
+INFO: Step: 128000, Time: 4.61e+08, KE: 1.38e+00, CFL: 0.119
+INFO: Step: 129000, Time: 4.64e+08, KE: 1.49e+00, CFL: 0.115
+Traceback (most recent call last):
+  File "/home/t-970c07/model_runner_parallel.py", line 170, in <module>
+    plt.figure()
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/matplotlib/pyplot.py", line 548, in figure
+    **kwargs)
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/matplotlib/backend_bases.py", line 161, in new_figure_manager
+    return cls.new_figure_manager_given_figure(num, fig)
+  File "/project2/rossby/group07/.conda/lib/python2.7/site-packages/matplotlib/backends/_backend_tk.py", line 1044, in new_figure_manager_given_figure
+    window = Tk.Tk(className="matplotlib")
+  File "/project2/rossby/group07/.conda/lib/python2.7/lib-tk/Tkinter.py", line 1815, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+_tkinter.TclError: no display name and no $DISPLAY environment variable
