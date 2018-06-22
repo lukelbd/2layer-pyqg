@@ -45,12 +45,12 @@ class Model(PseudoSpectralKernel):
         Background zonal velocity (`nk`) (cython)
     Qy : real array
         Background potential vorticity gradient (`nk`) (cython)
+    rek : real array
+        Linear drag in lower layer (`nz`, `ny`, `nx`) (cython)
     ufull, vfull : real arrays
         Zonal and meridional full velocities in real space (`nz`, `ny`, `nx`) (cython)
     uh, vh : complex arrays
         Velocity anomaly components in spectral space (`nk`, `nl`, `nk`) (cython)
-    rek : float
-        Linear drag in lower layer (cython)
     t : float
         Model time (cython)
     tc : int
@@ -99,7 +99,8 @@ class Model(PseudoSpectralKernel):
         taveint=86400.,             # time interval used for summation in longterm average in seconds
         useAB2=False,               # use second order Adams Bashforth timestepping instead of 3rd
         # friction parameters
-        rek=5.787e-7,               # linear drag in lower layer
+        # now becomes array, so not part of this model; what units?
+        # rek=5.787e-7,               # linear drag in lower layer
         filterfac=23.6,             # the factor for use in the exponential filter
         # constants
         f = None,                   # coriolis parameter (not necessary for two-layer model
@@ -131,8 +132,6 @@ class Model(PseudoSpectralKernel):
             Domain length in x direction. Units: meters.
         W :
             Domain width in y direction. Units: meters (default: L).
-        rek : number
-            linear drag in lower layer. Units: seconds :sup:`-1`.
         filterfac : number
             amplitdue of the spectral spherical filter (originally 18.4, later
             changed to 23.6).
@@ -181,7 +180,7 @@ class Model(PseudoSpectralKernel):
         self.ntd = ntd
 
         # friction
-        self.rek = rek
+        # self.rek = rek
         self.filterfac = filterfac
 
         # constants
@@ -320,8 +319,8 @@ class Model(PseudoSpectralKernel):
         Vl =(self.Vbg*I)[:,:,np.newaxis,np.newaxis]*self.l
         L3 = np.einsum('ij...,jk...->ik...',L2,Uk+Vl) + 0j
 
-        if bottom_friction:
-            L3[-1,-1,:,:] += 1j*self.rek*self.wv2
+        if bottom_friction: # apply friction from bottom layer
+            L3[-1,-1,:,:] += 1j*self.rekh[-1]*self.wv2
 
         L4 = self.a.T
 
@@ -355,9 +354,11 @@ class Model(PseudoSpectralKernel):
 
         self._do_external_forcing()
         # apply external forcing
+        # not implemented in kernel, or model.py
 
         self._calc_diagnostics()
         # do what has to be done with diagnostics
+        # not implemented in kernel; in model.py
 
         self._forward_timestep()
         # apply tendencies to step the model forward
@@ -436,7 +437,7 @@ class Model(PseudoSpectralKernel):
     def _filter(self, q):
         return self.filtr * q
 
-    # now implemented in kernel
+    # now written in kernel.pyx
     # def _do_external_forcing(self):
     #     pass
 
@@ -587,9 +588,11 @@ class Model(PseudoSpectralKernel):
             function= (lambda self: self.q)
         )
 
+        # seems that the -1 indexes the *bottom layer*, then we average in space
+        # rek is the 
         self.add_diagnostic('EKEdiss',
             description='total energy dissipation by bottom drag',
-            function= (lambda self: self.Hi[-1]/self.H*self.rek*(self.v[-1]**2 + self.u[-1]**2).mean())
+            function= (lambda self: self.Hi[-1]/self.H*(self.rek[-1]*(self.v[-1]**2 + self.u[-1]**2)).mean())
         )
 
         self.add_diagnostic('EKE',
@@ -634,6 +637,7 @@ class Model(PseudoSpectralKernel):
         print(80*'-')
         for k in diag_names:
             d = self.diagnostics[k]
+            # print(k, d['description'])
             print('{:<10} | {:<54}'.format(
                  *(k,  d['description'])))
 

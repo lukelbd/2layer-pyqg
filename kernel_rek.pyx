@@ -3,6 +3,7 @@
 #cython: wraparound=False
 #cython: nonecheck=False
 #from __future__ import division
+# from __future__ import print
 import numpy as np
 import warnings
 import cython
@@ -55,6 +56,11 @@ cdef class PseudoSpectralKernel:
     cdef DTYPE_com_t [:, :, :] dqhdt_p
     cdef DTYPE_com_t [:, :, :] dqhdt_pp
 
+    # friction parameter, now multi-dimensional
+    # will stay zero in the upper level for now
+    cdef DTYPE_real_t [:,:,:] rek
+    cdef DTYPE_com_t [:,:,:] rekh
+
     # dummy variables for diagnostic ffts
     cdef DTYPE_real_t [:, :, :] _dummy_fft_in
     cdef DTYPE_com_t [:, :, :] _dummy_fft_out
@@ -71,6 +77,7 @@ cdef class PseudoSpectralKernel:
     cdef readonly DTYPE_com_t [:] _ik
     cdef readonly DTYPE_com_t [:] _il
     cdef public DTYPE_real_t [:,:] _k2l2
+
     # background state constants (functions of z only)
     cdef DTYPE_real_t [:] Ubg
     cdef DTYPE_real_t [:] Qy
@@ -79,9 +86,6 @@ cdef class PseudoSpectralKernel:
     # spectral filter
     # TODO: figure out if this really needs to be public
     cdef public DTYPE_real_t [:, :] filtr
-
-    # friction parameter
-    cdef public DTYPE_real_t rek
 
     # time
     # need to have a property to deal with resetting timestep
@@ -104,6 +108,8 @@ cdef class PseudoSpectralKernel:
     cdef object fft_vq_to_vqh
     cdef object _dummy_fft
     cdef object _dummy_ifft
+    # add rek transformation
+    cdef object fft_rek_to_rekh
 
     def __init__(self, int nz, int ny, int nx, int fftw_num_threads=1):
         self.nz = nz
@@ -117,6 +123,14 @@ cdef class PseudoSpectralKernel:
         self.ll = np.zeros((self.nl), DTYPE_real)
         self._il = np.zeros((self.nl), DTYPE_com)
         self._k2l2 = np.zeros((self.nl, self.nk), DTYPE_real)
+
+        # friction
+        rek = self._empty_real()
+        self.rek = rek
+        rekh = self._empty_com()
+        self.rekh = rekh
+        # self.rek = np.zeros((self.nz, self.nl, self.nk), DTYPE_real)
+        # self.rekh = np.zeros((self.nz, self.nl, self.nk), DTYPE_com)
 
         # initialize FFT inputs / outputs as byte aligned by pyfftw
         q = self._empty_real()
@@ -163,9 +177,6 @@ cdef class PseudoSpectralKernel:
         self.tc = 0
         self.ablevel = 0
 
-        # friction
-        self.rek = 0.0
-
         # the tendency
         self.dqhdt = self._empty_com()
         self.dqhdt_p = self._empty_com()
@@ -182,6 +193,9 @@ cdef class PseudoSpectralKernel:
             # will destroy the input array. This is inherent to FFTW and the only
             # general work-around for this is to copy the array prior to
             # performing the transform.
+            # Changes the underlying data
+            self.fft_rek_to_rekh = pyfftw.FFTW(rek, rekh, threads=fftw_num_threads,
+                             direction='FFTW_FORWARD', axes=(-2,-1))
             self.fft_q_to_qh = pyfftw.FFTW(q, qh, threads=fftw_num_threads,
                              direction='FFTW_FORWARD', axes=(-2,-1))
             self.ifft_qh_to_q = pyfftw.FFTW(qh, q, threads=fftw_num_threads,
@@ -202,6 +216,8 @@ cdef class PseudoSpectralKernel:
 
     # otherwise define those functions using numpy
     IF PYQG_USE_PYFFTW==0:
+        def fft_rek_to_rekh(self):
+            self.rekh = npfft.rfftn(self.rek, axes=(-2,-1))
         def fft_q_to_qh(self):
             self.qh = npfft.rfftn(self.q, axes=(-2,-1))
         def ifft_qh_to_q(self):
@@ -331,6 +347,7 @@ cdef class PseudoSpectralKernel:
                     self.vq[k,j,i] = self.v[k,j,i] * self.q[k,j,i]
 
         # transform to get spectral advective flux
+        # this is the only transform performed in this section
         with gil:
             self.fft_uq_to_uqh()
             self.fft_vq_to_vqh()
@@ -347,41 +364,38 @@ cdef class PseudoSpectralKernel:
                                     self._ikQy[k,i] * self.ph[k,j,i] )
         return
 
-    # external forcing method
     def _do_external_forcing(self):
+        pass
         self.__do_external_forcing()
 
     cdef void __do_external_forcing(self) nogil:
-        """Apply external forcing"""
-        cdef Py_ssize_t k = self.nz-1
-        cdef Py_ssize_t j, i
-        if self.rek:
-            for j in prange(self.nl, nogil=True, schedule='static',
-                      chunksize=self.chunksize,
-                      num_threads=self.num_threads):
-                for i in range(self.nk):
-                    self.dqhdt[k,j,i] = (
-                            self.
-                            )
-        return
+        """Apply Ekman friction to lower layer tendency"""
+        pass
+        # First the mean forcing
+        # Next the random perturbations
 
     def _do_friction(self):
         self.__do_friction()
 
     cdef void __do_friction(self) nogil:
         """Apply Ekman friction to lower layer tendency"""
+        # experimental; manually apply rekh
+        if self.t==0:
+            # print("Manual conversion of Rek.")
+            with gil:
+                self.fft_rek_to_rekh()
+        # apply friction
         cdef Py_ssize_t k = self.nz-1
         cdef Py_ssize_t j, i
-        if self.rek:
-            for j in prange(self.nl, nogil=True, schedule='static',
-                      chunksize=self.chunksize,
-                      num_threads=self.num_threads):
-                for i in range(self.nk):
-                    self.dqhdt[k,j,i] = (
-                     self.dqhdt[k,j,i] +
-                             (self.rek *
-                             self._k2l2[j,i] *
-                             self.ph[k,j,i]) )
+        for j in prange(self.nl, nogil=True, schedule='static',
+                  chunksize=self.chunksize,
+                  num_threads=self.num_threads):
+            for i in range(self.nk):
+                self.dqhdt[k,j,i] = (
+                 self.dqhdt[k,j,i] +
+                         (self.rekh[k,j,i] *
+                         self._k2l2[j,i] *
+                         self.ph[k,j,i]) )
         return
 
     def _forward_timestep(self):
@@ -449,6 +463,11 @@ cdef class PseudoSpectralKernel:
         self.t += self.dt
         return
 
+    # warning: none of these __set__ and __get__ methods seem to be accessed! you
+    # just have to call the fft conversions directly!
+    # warning: this syntax is deprecated, in future should use:
+    # @property decorator instead of def __get__ inside 'property' object
+    # @property.setter decorator instead of def __set__ inside of 'property' object
     property dt:
         def __get__(self):
             return self.dt
@@ -508,11 +527,32 @@ cdef class PseudoSpectralKernel:
         def __get__(self):
             return np.asarray(self.qh)
         def __set__(self, np.ndarray[DTYPE_com_t, ndim=3] b):
+            # print("Kernel conversion of q.")
             cdef  DTYPE_com_t [:, :, :] b_view = b
             self.qh[:] = b_view
             self.ifft_qh_to_q()
             # input might have been destroyed, have to re-assign
             self.qh[:] = b_view
+    # special rek and rekh properties
+    # this is called when property is read
+    # no need to convert back spectral rek to cartesian rek; just want to
+    # convert FFT it foreward *once* -- when it is initially set on declaration
+    property rekh:
+        def __get__(self):
+            return np.asarray(self.rekh)
+    property rek:
+        def __get__(self):
+            return np.asarray(self.rek)
+        def __set__(self, np.ndarray[DTYPE_real_t, ndim=3] rek):
+            # print("Kernel conversion of Rek.")
+            self.rek = rek
+            self.fft_rek_to_rekh()
+        # def __set__(self, np.ndarray[DTYPE_real_t, ndim=3] b):
+        #     cdef  DTYPE_real_t [:, :, :] b_view = b
+        #     print("Kernel conversion of Rek.")
+        #     self.rek[:] = b_view
+        #     self.fft_rek_to_rekh()
+    # simple data, that is never converted cartesian to spectral
     property dqhdt:
         def __get__(self):
             return np.asarray(self.dqhdt)

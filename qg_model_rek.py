@@ -60,13 +60,20 @@ class QGModel(model.Model):
 
     def __init__(
         self,
-        beta=1.5e-11,               # gradient of coriolis parameter
-        #rek=5.787e-7,               # linear drag in lower layer
-        rd=15000.0,                 # deformation radius
-        delta=0.25,                 # layer thickness ratio (H1/H2)
-        H1 = 500,                   # depth of layer 1 (H1)
-        U1=0.025,                   # upper layer flow
-        U2=0.0,                     # lower layer flow
+        rek_k=6.0,        # zonal wavenumber
+        rek_l=0.5,      # meridional wavenumber
+        rek_base=0.05,  # magnitude of ReK, in days^-1
+        rek_anom=0.01,  # maximum amplitude of perturbation rek, in days^-1
+        rek_kshift=0.0, # fractional phase shift
+        rek_lshift=0.0, # fractional phase shift
+        # rek=0.0,      # linear drag, an array or constant
+        # rek=5.787e-7, # linear drag in lower layer
+        beta=1.5e-11,   # gradient of coriolis parameter
+        rd=15000.0,     # deformation radius
+        delta=0.25,     # layer thickness ratio (H1/H2)
+        H1 = 500,       # depth of layer 1 (H1)
+        U1=0.025,       # upper layer flow
+        U2=0.0,         # lower layer flow
         **kwargs
         ):
         """
@@ -76,8 +83,18 @@ class QGModel(model.Model):
         beta : number
             Gradient of coriolis parameter. Units: meters :sup:`-1`
             seconds :sup:`-1`
-        rek : number
-            Linear drag in lower layer. Units: seconds :sup:`-1`
+        rek_k : number
+            Zonal wavenumber for linear drag parameter.
+        rek_l : number
+            Meridional wavenumber for linear drag parameter.
+        rek_base : number
+            Base state drag in lower layer. Units: seconds :sup:`-1`
+        rek_anom : number
+            Maximum perturbation amplitude of drag in lower layer. Units: seconds :sup:`-1`
+        rek_kshift : number
+            Zonal phase shift of linear drag parameter. Units: wavenumbers.
+        rek_lshift : number
+            Meridional phase shift of linear drag parameter. Units: wavenumbers.
         rd : number
             Deformation radius. Units: meters.
         delta : number
@@ -102,12 +119,16 @@ class QGModel(model.Model):
         super(QGModel, self).__init__(nz=2, **kwargs)
 
         # initial conditions: (PV anomalies)
+        # only perturb upper layer (index 0), not lower layer
         self.set_q1q2(
-            1e-7*np.random.rand(self.ny,self.nx) + 1e-6*(
-                np.ones((self.ny,1)) * np.random.rand(1,self.nx) ),
-                np.zeros_like(self.x) )
+        1e-7*np.random.rand(self.ny,self.nx) + 1e-6*(np.ones((self.ny,1))*np.random.rand(1,self.nx)),
+        np.zeros_like(self.x))
 
-
+        # drag coefficient, converted to seconds per day
+        self.set_rek((1.0/(24.0*3600.0))*(rek_base 
+            + rek_anom*np.sin(2*np.pi*(rek_kshift + rek_k*np.arange(0.0,self.nx)/self.nx))[None,:]
+            + rek_anom*np.sin(2*np.pi*(rek_lshift + rek_l*np.arange(0.0,self.ny)/self.ny))[:,None]
+            ))
 
     ### PRIVATE METHODS - not meant to be called by user ###
 
@@ -166,6 +187,15 @@ class QGModel(model.Model):
         # self.filtr = np.exp(-self.filterfac*(wvx-cphi)**4.)
         # self.filtr[wvx<=cphi] = 1.
 
+    def set_rek(self, rek):
+        """Sets up the lower layer rek damping rate."""
+        print("Setting up cartesian Rek.")
+        self.rek[0] = np.zeros_like(rek)
+        self.rek[1] = rek
+        print(rek)
+        # print("Setting up spectral Rek from parent function.")
+        # self.fft_rek_to_rekh()
+
     def set_q1q2(self, q1, q2, check=False):
         """Set upper and lower layer PV anomalies.
 
@@ -174,12 +204,12 @@ class QGModel(model.Model):
 
         q1 : array-like
             Upper layer PV anomaly in spatial coordinates.
-        q1 : array-like
+        q2 : array-like
             Lower layer PV anomaly in spatial coordinates.
         """
-        self.set_q(np.vstack([q1[np.newaxis,:,:], q2[np.newaxis,:,:]]))
-        #self.q[0] = q1
-        #self.q[1] = q2
+        #self.set_q(np.vstack([q1[np.newaxis,:,:], q2[np.newaxis,:,:]]))
+        self.q[0] = q1
+        self.q[1] = q2
 
         # initialize spectral PV
         #self.qh = self.fft2(self.q)
